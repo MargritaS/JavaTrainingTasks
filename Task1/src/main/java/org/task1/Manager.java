@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Manager extends Employee {
     public ArrayList<Employee> teamList;
 
-    public Manager(String name, String surname, Float baseSalary, Integer experience) {
+    public Manager(String name, String surname, Double baseSalary, Integer experience) {
         super(name, surname, baseSalary, experience);
         teamList = new ArrayList<>();
     }
@@ -14,7 +14,7 @@ public class Manager extends Employee {
         this.teamList.add(employee);
     }
 
-    public Float countedSalary () {
+    public Double countedSalary () {
         int numberOfDevs = 0;
 
         for (var item: teamList){
@@ -23,7 +23,7 @@ public class Manager extends Employee {
             }
         }
 
-        float salary = 0;
+        Double salary = 0.0;
         if (teamList.size() >= 5 && teamList.size() < 10) {
             salary = super.countedSalary() + 200;
         } else if (teamList.size() >= 10) {
@@ -32,7 +32,7 @@ public class Manager extends Employee {
             salary = super.countedSalary();
         }
         if (numberOfDevs >= teamList.size()/2) {
-            salary = salary * (float)1.1;
+            salary = salary * (Double)1.1;
         }
 
         return salary;
