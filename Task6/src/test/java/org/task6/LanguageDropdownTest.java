@@ -1,4 +1,5 @@
-package org.task5;
+package org.task6;
+
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,18 +16,14 @@ public class LanguageDropdownTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-search-engine-choice-screen");
         WebDriver driver = new ChromeDriver(options);
-       try {
-           driver.get("https://oos.dmytrominochkin.cloud/#/");
-           var mainPage = new MainPage(driver);
-           mainPage.setupLocation();
-           mainPage.changeLanguage();
+        driver.get("https://oos.dmytrominochkin.cloud/#/");
 
-           Assert.assertEquals("Top categories", mainPage.getSectionText());
-       } finally {
+        var mainPage = new MainPage(driver);
+        mainPage.setupLocation();
+        mainPage.changeLanguage();
 
-           driver.quit();
-       }
-
+        Assert.assertEquals("Top categories", mainPage.getSectionText());
+        driver.quit();
 
     }
 }
